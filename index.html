@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/index.css">
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script type="text/javascript" src="js/myjs.js"></script>
+
+
+  <title>哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</title>
+  <style>
+    .clearshow {
+      position: absolute;
+      width: 100%;
+      height: 20px;
+      z-index: 1;
+    }
+
+    .nav-link {
+      position: relative;
+    }
+
+    #popmargin {
+      position: absolute;
+      top: 50px;
+      left: -4px;
+    }
+  </style>
+  <script>
+    $(function () {
+      let y, y1;
+      let flag = true;
+      let clone;
+      $("#lb").sortable({
+        disabled: true,
+        item: ".sortable",
+        axis: 'y',
+
+        delay: 0,
+        zIndex: 2020,
+        revert: 200,
+        grid: [0, 24],
+        revert: true,//如果设置成true，则被拖拽的元素在返回新位置时，会有一个动画效果。
+
+        distance: 24,
+        helper: "clone",
+        tolerance: 'pointer',
+        forcePlaceholderSize: true,
+        forceHelperSize: false,
+
+        cursor: "text",
+        start: function (event, ui) {
+          clone = $(ui.item[0].outerHTML).clone();
+          $(ui.helper).addClass("xz")
+          $(ui.item).addClass('xz')
+          $('body').mousemove(function (e) {
+            e = e || window.event;
+
+            y = e.pageY || e.clientY + document.body.scrollTop;
+            if (flag) {
+              y1 = y
+              flag = false
+            }
+            console.log(y)
+            return;
+          });
+
+
+        },
+        sort: function (event, ui) {
+          let n = $(ui.placeholder).index()
+          let lb = $("#lb .sortable");
+          if (y > y1) {
+            if (n == 19) {
+              //lb.eq(20).css({"transform":"translate3d(0,-10px,0)","transtion-duration":"300ms"})
+
+            } else {
+              //lb.eq(n).css({"transform":"translate3d(0,-10px,0)","transtion-duration":"300ms"})
+
+            }
+          }
+          else {
+            if (n == 2) {
+              //lb.eq(1).css({"transform":"translate3d(0,10px,0)","transtion-duration":"300ms"})
+
+            } else {
+              //lb.eq(n).css({"transform":"translate3d(0,10px,0)","transtion-duration":"300ms"})
+
+            }
+
+
+          }
+
+          console.log(n)
+        },
+        placeholder: {
+          element: function (clone, ui) {
+            return $('<div class="item lieon"  >' + clone[0].innerHTML + '</div>');
+          }, update: function () {
+            return;
+          }
+        },
+        stop: function (event, ui) {
+          $(ui.item).removeClass('xz')
+          $("#lb .sortable").css({ "transform": "translate3d(0,0px,0)", "transtion-duration": "300ms" })
+        }
+
+
+
+      });
+      $("#lb").disableSelection();
+
+    });
+  </script>
+
+</head>
+
+<body>
+
+  <div class="home" style="width: 100%;height: 100%;position: relative;">
+    <div id="Header" class="header">
+      <div class="mini-header">
+        <div class="clearshow"></div>
+
+        <div class="mini-header_content ">
+          <div class="nav-link">
+            <ul class="nav-link-ul">
+              <li class="nav-link-item"><a class="link" href="">
+
+                  <svg height="20" width="24" t="1589083525344" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" p-id="576" width="64" height="64"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <defs>
+                      <style type="text/css"></style>
+                    </defs>
+                    <path
+                      d="M777.514667 131.669333a53.333333 53.333333 0 0 1 0 75.434667L728.746667 255.829333h49.92A160 160 0 0 1 938.666667 415.872v320a160 160 0 0 1-160 160H245.333333A160 160 0 0 1 85.333333 735.872v-320a160 160 0 0 1 160-160h49.749334L246.4 207.146667a53.333333 53.333333 0 1 1 75.392-75.434667l113.152 113.152c3.370667 3.370667 6.186667 7.04 8.448 10.965333h137.088c2.261333-3.925333 5.12-7.68 8.490667-11.008l113.109333-113.152a53.333333 53.333333 0 0 1 75.434667 0z m1.152 231.253334H245.333333a53.333333 53.333333 0 0 0-53.205333 49.365333l-0.128 4.010667v320c0 28.117333 21.76 51.157333 49.365333 53.162666l3.968 0.170667h533.333334a53.333333 53.333333 0 0 0 53.205333-49.365333l0.128-3.968v-320c0-29.44-23.893333-53.333333-53.333333-53.333334z m-426.666667 106.666666c29.44 0 53.333333 23.893333 53.333333 53.333334v53.333333a53.333333 53.333333 0 1 1-106.666666 0v-53.333333c0-29.44 23.893333-53.333333 53.333333-53.333334z m320 0c29.44 0 53.333333 23.893333 53.333333 53.333334v53.333333a53.333333 53.333333 0 1 1-106.666666 0v-53.333333c0-29.44 23.893333-53.333333 53.333333-53.333334z"
+                      p-id="577" fill="#ffffff"></path>
+                  </svg>
+                  主站</a></li>
+              <li id="fj" class="nav-link-item"><a class="link" href="">番剧</a></li>
+              <li id="yxzx" class="nav-link-item">
+                <a class="link" href="">游戏中心</a>
+
+              </li>
+              <li id="zb" class="nav-link-item">
+                <a class="link" href="">直播</a>
+              </li>
+              <li id="hyg" class="nav-link-item"><a class="link" href="">会员购</a></li>
+              <li id="mh" class="nav-link-item"><a class="link" href="">漫画</a></li>
+              <li id="ss" class="nav-link-item"><a class="link" href="">赛事</a></li>
+              <li id="ap" class="nav-link-item"><a class="link" href="">
+
+                  <svg height="20" width="24" t="1589091905257" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" p-id="32843" width="64" height="64">
+                    <path
+                      d="M796.909423 54.747905 227.733213 54.747905c-31.434943 0-56.913221 25.482371-56.913221 56.918337l0 796.84956c0 31.43392 25.478278 56.915267 56.913221 56.915267l569.176211 0c31.44006 0 56.921407-25.481348 56.921407-56.915267L853.830831 111.666242C853.830831 80.230276 828.34846 54.747905 796.909423 54.747905zM739.991086 737.759767 284.655643 737.759767 284.655643 168.588673l455.335443 0L739.991086 737.759767z"
+                      p-id="32844" fill="#ffffff"></path>
+                    <path
+                      d="M796.909423 54.747905 227.733213 54.747905c-31.434943 0-56.913221 25.482371-56.913221 56.918337l0 796.84956c0 31.43392 25.478278 56.915267 56.913221 56.915267l569.176211 0c31.44006 0 56.921407-25.481348 56.921407-56.915267L853.830831 111.666242C853.830831 80.230276 828.34846 54.747905 796.909423 54.747905zM739.991086 737.759767 284.655643 737.759767 284.655643 168.588673l455.335443 0L739.991086 737.759767z"
+                      p-id="32845" fill="#ffffff"></path>
+                  </svg>
+
+                  下载APP</a></li>
+              <li id="nap" class="nav-link-item"><a href=""
+                  style="display: block; height: 30px;width: 30px;cursor: default;"></a></li>
+            </ul>
+          </div>
+          <div class="nav-search-box">
+            <form class="nav-searchform">
+              <input type="text" placeholder="老腔皮影戏《东方风神录》">
+              <div class="nav-search-but">
+                <button style="outline: none;">
+
+                  <svg style="margin-top: 8px" height="15" width="15" t="1589096830548" class="icon sear"
+                    viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="34508" width="64"
+                    height="64">
+                    <path
+                      d="M965.844997 881.865839 754.477009 664.678308c50.566676-69.379137 80.548524-155.630546 80.548524-249.027703C835.025533 186.084139 653.937175 0 430.548408 0 207.09722 0 26.008862 186.084139 26.008862 415.650605c0 229.622748 181.089381 415.653675 404.540569 415.653675 73.90522 0 143.193283-20.342304 202.813149-55.973826l218.011292 224.12657c31.629371 32.454156 82.899058 32.454156 114.472148 0C997.480508 967.001845 997.480508 914.321018 965.844997 881.865839zM430.548408 720.473055c-163.835416 0-296.68205-136.462998-296.68205-304.82245 0-168.298054 132.846634-304.823474 296.68205-304.823474 163.80267 0 296.64828 136.52542 296.64828 304.823474C727.196689 584.010057 594.351078 720.473055 430.548408 720.473055z"
+                      p-id="34509"></path>
+                  </svg>
+                </button>
+              </div>
+            </form>
+
+          </div>
+
+          <div class="nav-user-center">
+            <div class="user-con">
+              <div id="lj" style="display: block; width: 60px;height: 40px;position: absolute; left: -30px;"></div>
+              <div id="lgin" class="name" style="margin-left: 30px;">
+                <img src="images/akari.jpg" class="logout-face">
+                登录
+              </div>
+              <div id="zcc" class="item" style="margin-left: 10px;"><a
+                  href="//passport.bilibili.com/register/phone.html" class="txt name">注册</a></div>
+
+              <button id="tg" style="position: absolute;right: -5px;cursor: pointer;">投稿</button>
+
+            </div>
+
+          </div>
+          <div id="tgg"
+            style="width: 304px; position: absolute;  right: 25px; top:60px; background-color:#000; border:2px ; display: none; ">
+            <svg height="35px" width="20px" t="1589344086587" style="position: absolute;top:-21px;left: 80%;"
+              viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3303" width="64"
+              height="64">
+              <path d="M27.273 753.613l485.222-484.233 484.233 485.222z" p-id="3304" fill="#ffffff">
+              </path>
+            </svg>
+
+
+            <ul
+              style="cursor: pointer; border-radius: 2px; background-color: #fff;display: flex;width: 100%; height: 100%; ">
+
+              <li style="width: 76px;height: 68px; text-align: center;"><img src="images/文件上传.png" alt=""
+                  style="margin-top: 10px; width: 28px;height: 28px;display: block;margin-left: 20px;">
+                <div style="height: 3px;display: block;"></div><a href="">专栏投稿</a>
+              </li>
+
+              <li style="width: 76px;height: 68px; text-align: center;"><img src="images/音乐.png" alt=""
+                  style=" margin-top: 10px; width: 28px;height: 28px;display: block;margin-left: 20px;">
+                <div style="height: 3px;display: block;"></div><a href="">音频投稿</a>
+              </li>
+
+              <li style="width: 76px;height: 68px; text-align: center;"><img src="images/视频.png" alt=""
+                  style="margin-top: 10px; width: 28px;height: 28px;display: block;margin-left: 20px;">
+                <div style="height: 3px;display: block;"></div><a href="">视频投稿</a>
+              </li>
+
+              <li style="width: 76px;height: 68px; text-align: center;"><img src="images/设置.png" alt=""
+                  style="margin-top: 10px; width: 28px;height: 28px;display: block;margin-left: 20px;">
+                <div style="height: 3px;display: block;"></div><a href="">投稿管理</a>
+              </li>
+            </ul>
+
+
+          </div>
+          <div id="log1" style=" display: none; position: absolute;right: 70px; top: 60px; width: 318px;height:305px; ">
+            <svg height="35px" width="20px" t="1589344086587" style="position: absolute;top:-21px;left: 50%;"
+              viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3303" width="64"
+              height="64">
+              <path d="M27.273 753.613l485.222-484.233 484.233 485.222z" p-id="3304" fill="#ffffff">
+              </path>
+            </svg>
+            <div class="vp-container">
+              <p class="title">登录后你可以：</p>
+              <div style="height: 10px;"></div>
+              <div class="img-panel" style=" background: url(images/danmub.png) no-repeat 50%;">
+                <img id="im1" src="images/danmu.png" style="position: absolute; left: -214px;">
+                <img id="im2" src="images/danmu.png" style=" position: absolute; left: 100px;">
+              </div>
+
+              <div class="btn-box" style="width: 100%; margin-left: 5px;">
+                <a id="zcbtn" href="//passport.bilibili.com/register/phone.html" class="btn"
+                  style="margin-left: 3px; background-color:#fff; color: #47CAEC;"> 注册</a>
+                <a id="dlbtn" href="//passport.bilibili.com/login" class="btn xs" style="color: #fff;">登录</a>
+              </div>
+            </div>
+
+            <div id="lang-change" class="lang-change">
+              <div id="lang-item" class="lang-item">
+                <div class="lang-title" style="margin-left:15px; position:relative; ">
+                  <svg style="position: absolute;top:-2px;left:-27px;" height="24px" width="24px" t="1589373756135"
+                    class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1098"
+                    width="200" height="200">
+                    <path
+                      d="M512 129.94444444h-0.36736111H511.08159723c-210.68159723 0.55104167-381.13715277 171.37395833-381.13715279 382.05555556s170.45555556 381.50451389 381.13715279 382.05555556h0.91840277c211.04895833 0 382.05555556-171.00659723 382.05555556-382.05555556S723.04895833 129.94444444 512 129.94444444z m15.24548611 228.68229167c40.59340277-1.10208333 79.90104167-6.42881944 117.92291666-15.61284722 11.38819444 45.00173611 18.55173611 96.98333333 19.65381946 153.92430555H527.24548611V358.62673611z m0-30.67465278V163.00694444c41.14444444 11.38819444 83.02361111 66.30868056 109.47361112 150.61805556-35.26666667 8.44930556-71.81909723 13.225-109.47361112 14.32708333z m-30.49097222-165.3125v165.49618056c-38.021875-1.10208333-74.94166667-6.06145833-110.39201389-14.69444445 26.81736111-84.86041667 68.88020833-140.14826389 110.39201389-150.80173611z m0 195.98715278v138.12777778H358.259375c1.10208333-56.94097223 8.265625-108.92256944 19.65381944-153.92430556 38.20555556 9.18402777 78.06423611 14.69444444 118.84131945 15.79652778zM327.40104167 496.75451389H160.98645833c3.30625-78.61527777 32.69513889-150.61805556 79.53368056-207.55902778 33.98090277 18.73541667 70.16597223 34.16458333 108.00416667 45.55277778-12.49027777 48.67534723-19.8375 103.59583333-21.12326389 162.00625z m0 30.49097222c1.10208333 58.22673611 8.44930556 113.33090277 20.93958333 162.00625a571.99043402 571.99043402 0 0 0-108.00416667 45.55277778c-46.83854167-56.94097223-76.04375-128.94375-79.53368056-207.55902778H327.40104167z m30.85833333 0h138.49513889v137.94409722C455.97743056 666.29166667 416.11875 671.80208333 377.91319444 681.16979167c-11.38819444-45.00173611-18.55173611-96.98333333-19.65381944-153.92430556z m138.49513889 168.61875v165.67986112c-41.51180556-10.83715277-83.57465277-65.94131944-110.39201389-150.80173612 35.45034723-8.81666667 72.37013889-13.77604167 110.39201389-14.878125zM527.24548611 860.99305556V695.68055556c37.65451389 1.10208333 74.20694444 6.06145833 109.65729166 14.51076388-26.63368056 84.49305556-68.32916667 139.41354167-109.65729166 150.80173612z m0-195.80347223V527.24548611h137.57673612c-1.10208333 56.75729167-8.265625 108.73888889-19.65381946 153.740625-38.021875-9.18402777-77.32951389-14.69444444-117.92291666-15.79652778z m168.25138889-137.94409722h167.51666667c-3.30625 78.61527777-32.69513889 150.434375-79.53368056 207.55902778-34.34826389-18.91909723-70.71701389-34.34826389-108.92256944-45.92013889 12.49027777-48.67534723 19.8375-103.41215277 20.93958333-161.63888889z m0-30.49097222c-1.10208333-58.22673611-8.44930556-113.14722223-20.75590277-161.82256945 38.20555556-11.571875 74.57430556-27.00104167 108.73888888-45.73645833 46.83854167 56.94097223 76.22743056 128.94375 79.53368056 207.74270833H695.496875z m67.04340277-231.07013889c-30.49097223 16.16388889-62.45138889 29.57256944-96.06493054 39.675-17.81701389-57.49201389-42.98125-104.33055556-72.55381946-135.18888889 65.02291667 15.61284723 123.06597223 49.41006944 168.61875 95.51388889zM428.97638889 170.53784723c-29.57256944 30.67465277-54.553125 77.51319444-72.18645833 134.63784721-33.24618056-10.10243056-65.02291667-23.32743056-95.14652779-39.49131944 45.00173611-45.92013889 102.67743056-79.53368056 167.33298612-95.14652777zM261.45972223 758.13194444c30.12361111-16.16388889 62.08402777-29.38888889 95.14652777-39.49131944 17.81701389 57.30833333 42.79756944 103.96319444 72.37013889 134.82152777-64.65555556-15.61284723-122.33125-49.22638889-167.51666666-95.33020833z m332.46180554 95.69756945c29.75625-30.85833333 54.73680556-77.696875 72.7375-135.37256945 33.61354167 10.10243056 65.57395833 23.51111111 96.06493056 39.675-45.55277777 46.2875-103.77951389 80.08472223-168.80243056 95.69756945z"
+                      p-id="1099" fill="#979797"></path>
+                  </svg>
+                  语言：简体中文
+                </div>
+                <svg width="24px" height="24px" t="1589374072206" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                  xmlns="http://www.w3.org/2000/svg" p-id="1895" width="200" height="200">
+                  <path
+                    d="M389.115331 770.219783c5.30475 0 10.60438-2.047771 14.613915-6.133073l203.420417-207.234389c12.096181-12.32246 18.744269-28.619643 18.716624-45.887469-0.026621-17.267826-6.723855-33.544531-18.85792-45.830131l-203.323148-205.864431c-7.946374-8.045691-20.911834-8.128626-28.958548-0.17918-8.046715 7.947398-8.127602 20.912858-0.180204 28.959572L577.868591 493.915114c9.312237 9.427936 9.335786 24.792359 0.053242 34.248964L374.503464 735.397443c-7.922825 8.071288-7.802006 21.035724 0.269281 28.957525a20.401939 20.401939 0 0 0 14.342586 5.864815z"
+                    fill="#A0A0A0" p-id="1896"></path>
+                </svg>
+              </div>
+              <div class="lang-intro" id="lang-intro" style="height: 102px;">
+                <ul class="kkl" style="width: 100%">
+                  <li id="jt" class="lang-intro-item"
+                    style="line-height: 34px;background-color: #f4f4f4;color: #2FB2DE;">简体中文<svg width="22px"
+                      height="22px" t="1589375971341" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                      xmlns="http://www.w3.org/2000/svg" p-id="2742" width="200" height="200">
+                      <path
+                        d="M356.633486 866.60326a43.335582 43.335582 0 0 1-30.655697-12.70156L16.595837 544.519749a43.342807 43.342807 0 0 1 0-61.296945 43.328357 43.328357 0 0 1 61.30417 0L356.626261 761.949058l590.788683-590.795908a43.342807 43.342807 0 0 1 61.296945 0 43.335582 43.335582 0 0 1 0 61.30417l-621.437155 621.44438a43.277782 43.277782 0 0 1-30.641248 12.70156z"
+                        fill="#2FB2DE" p-id="2743"></path>
+                    </svg></li>
+                  <li id="ft" class="lang-intro-item" style="line-height: 34px;">繁体中文</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+          <ul id="popmargin">
+            <div class="pop">
+
+              <div id="yxzx1"
+                style=" display:none; transform-origin: center top;  position: relative;width: 680px;height: 260px; margin-top: 10px;margin-left: 80px; ">
+                <svg height="35px" width="20px" t="1589344086587" style="position: absolute;top:-21px;left: 10%;"
+                  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3303" width="64"
+                  height="64">
+                  <path d="M27.273 753.613l485.222-484.233 484.233 485.222z" p-id="3304" fill="#ffffff"></path>
+                </svg>
+                <iframe src="https://www.bilibili.com/page-proxy/game-nav.html" frameborder="0" width="100%"
+                  height="100%"></iframe>
+              </div>
+              <div id="zb1"
+                style="display: none; transform-origin: center top;  position: relative;width: 528px;height: 266px; margin-top: 10px;margin-left: 145px;">
+                <svg height="35px" width="20px" t="1589344086587" style="position: absolute;top:-21px;left: 10%;"
+                  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3303" width="64"
+                  height="64">
+                  <path d="M27.273 753.613l485.222-484.233 484.233 485.222z" p-id="3304" fill="#ffffff"></path>
+                </svg>
+                <iframe src="https://live.bilibili.com/blackboard/dropdown-menu.html" frameborder="0" width="100%"
+                  height="100%"></iframe>
+              </div>
+              <div id="mh1"
+                style="display: none; transform-origin: center top;position: relative;width: 528px;height: 266px; margin-top: 10px;margin-left: 240px;">
+                <svg height="35px" width="20px" t="1589344086587" style="position: absolute;top:-21px;left: 10%;"
+                  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3303" width="64"
+                  height="64">
+                  <path d="M27.273 753.613l485.222-484.233 484.233 485.222z" p-id="3304" fill="#ffffff"></path>
+                </svg>
+                <iframe src="https://manga.bilibili.com/eden/bilibili-nav-panel.html" frameborder="0" width="100%"
+                  height="100%"></iframe>
+              </div>
+              <div id="ap1"
+                style="display: none; transform-origin: center top;  position: relative;width: 280px;height: 212px; margin-top: 10px;margin-left: 270px;">
+                <svg height="35px" width="20px" t="1589344086587" style="position: absolute;top:-18px;left: 43%;"
+                  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3303" width="64"
+                  height="64">
+                  <path d="M27.273 753.613l485.222-484.233 484.233 485.222z" p-id="3304" fill="#ffffff"></path>
+                </svg>
+                <img src="images/app-download.png" width="100%" height="100%" alt="">
+                <p class="txt"
+                  style="display: block; font-size: 14px;width: 100%;text-align: center;position: absolute;bottom: 20px">
+                  扫码下载手机客户端</p>
+              </div>
+
+
+
+            </div>
+
+          </ul>
+
+
+        </div>
+      </div>
+      <div class="bili-banner" style="background-image:url(images/bilibili-banner.png);">
+        <div id="cun"><img src="images/春.png" alt=""></div>
+      </div>
+      <div class="b-wrap">
+        <div class="primary-menu-itnl">
+          <div id="primaryPageTab" class="page-tab">
+            <ul class="con">
+              <li>
+                <a href="">
+                  <div class="round">
+                    <svg style="margin-bottom: -3px;" height="20px" width="20px" t="1589106450920" class="icon"
+                      viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4333" width="64"
+                      height="64">
+                      <path
+                        d="M89.488871 352.556974c0 1.000873-77.210229 70.204115-77.210229 70.204115-14.870118 13.011353-16.442919 35.459512-3.574548 50.329631 7.006113 8.149969 17.014847 12.296444 27.02358 12.296444 8.29295 0 16.728883-2.859638 23.449032-8.721896L512.0004 82.893102l452.966675 393.772166c6.72015 5.862258 15.156082 8.721896 23.449032 8.721896 10.008733 0 19.874485-4.146475 27.02358-12.296444 13.011353-14.870118 11.438552-37.461259-3.574548-50.329631l0 0-88.934745-77.353211 0-100.087333c0-19.731503-16.013973-35.745476-35.745476-35.745476s-35.745476 16.013973-35.745476 35.745476l0 38.033187-315.99001-274.668239c0 0 0 0 0 0-2.28771-2.001747-4.861385-3.71753-7.435059-5.004367 0 0 0 0 0 0-0.428946-0.285964-1.000873-0.428946-1.429819-0.71491 0 0-0.142982 0-0.142982-0.142982-0.428946-0.142982-0.857891-0.428946-1.286837-0.571928-0.142982 0-0.142982-0.142982-0.285964-0.142982-0.428946-0.142982-0.71491-0.285964-1.143855-0.428946-0.142982 0-0.285964-0.142982-0.428946-0.142982-0.285964-0.142982-0.71491-0.285964-1.000873-0.285964-0.142982 0-0.428946-0.142982-0.571928-0.142982-0.285964-0.142982-0.71491-0.142982-1.000873-0.285964-0.142982 0-0.428946-0.142982-0.71491-0.142982-0.428946-0.142982-0.71491-0.142982-1.143855-0.142982-0.142982 0-0.428946-0.142982-0.571928-0.142982-0.428946 0-0.857891-0.142982-1.286837-0.142982-0.142982 0-0.285964 0-0.428946 0-0.571928 0-1.000873-0.142982-1.572801-0.142982 0 0-0.142982 0-0.142982 0-5.576294-0.428946-11.29557 0.428946-16.585901 2.716656 0 0-0.142982 0-0.142982 0.142982-0.428946 0.142982-0.71491 0.285964-1.143855 0.571928-0.142982 0.142982-0.285964 0.142982-0.571928 0.285964-0.285964 0.142982-0.571928 0.285964-0.857891 0.428946-0.285964 0.142982-0.571928 0.285964-0.857891 0.428946-0.142982 0.142982-0.428946 0.142982-0.571928 0.285964-0.285964 0.142982-0.71491 0.428946-1.000873 0.571928-0.142982 0-0.285964 0.142982-0.285964 0.142982-0.428946 0.285964-0.857891 0.571928-1.143855 0.857891 0 0-0.142982 0.142982-0.142982 0.142982-0.428946 0.285964-0.857891 0.571928-1.286837 1.000873 0 0-0.142982 0.142982-0.142982 0.142982-0.428946 0.285964-0.857891 0.71491-1.143855 1.000873 0 0 0 0-0.142982 0L160.979824 293.505448 89.488871 352.556974z"
+                        p-id="4334" fill="#ffffff"></path>
+                      <path
+                        d="M893.190159 479.381924c-19.731503 0-35.745476 16.013973-35.745476 35.745476l0 354.881088c0 44.753336-30.74111 82.643541-67.201495 82.643541l-556.19961 0c-36.460386 0-67.201495-37.890205-67.201495-82.643541L166.842082 515.1274c0-19.731503-16.013973-35.745476-35.745476-35.745476-19.731503 0-35.745476 16.013973-35.745476 35.745476l0 354.881088c0 84.931252 62.197129 153.991512 138.692448 153.991512l556.19961 0c76.495319 0 138.692448-69.06026 138.692448-153.991512L928.935635 515.1274C928.935635 495.395897 912.921662 479.381924 893.190159 479.381924L893.190159 479.381924z"
+                        p-id="4335" fill="#ffffff"></path>
+                    </svg>
+
+
+                  </div>
+                  <span>首页</span>
+
+                </a>
+
+              </li>
+              <li style="position: absolute;left: 45px;">
+                <div style="width: 36px;height: 36px;margin: 0 auto 4px;">
+                  <img src="images/动态.jpg" alt="" style="width: 36px;height: 36px;">
+
+                </div>
+
+                <a href="">动态</a>
+
+              </li>
+              <li style="position: absolute;left: 90px;">
+                <a href="">
+                  <div class="round" style="background:#00a1d6; ">
+                    <svg style="margin-bottom: -3px;" height="20px" width="20px" t="1589107954071" class="icon"
+                      viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5662" width="64"
+                      height="64">
+                      <path
+                        d="M318.696727 973.870545H35.863273V484.328727h282.810182v489.541818z m-236.288-46.545454h189.719273V530.874182H82.408727v396.450909zM988.113455 973.870545H705.303273V282.507636h282.810182v691.362909z m-236.264728-46.545454h189.719273V329.053091h-189.719273v598.272zM653.381818 973.870545H370.594909V31.488h282.810182v942.382545z m-236.241454-46.545454h189.719272V78.033455h-189.719272v849.291636z"
+                        p-id="5663" fill="#ffffff"></path>
+                      <path d="M161.28 926.976h803.560727v47.243636H161.28z" p-id="5664" fill="#ffffff"></path>
+                    </svg>
+
+                  </div>
+                  <span>排行榜</span>
+
+                </a>
+              </li>
+            </ul>
+            <span class="tab-line-itnl"></span>
+
+
+          </div>
+          <div id="primaryChannelMenu" class="channel-menu-itnl">
+            <span>
+              <div>
+                <a href="">
+                  <span>
+                    动画
+                    <em>999+</em>
+                  </span>
+
+
+                </a>
+
+              </div>
+
+            </span>
+            <span>
+              <div>
+                <a href="">
+                  <span>
+                    番剧
+                    <em>999+</em>
+                  </span>
+                </a>
+
+              </div>
+
+            </span>
+
+            <span>
+              <div>
+                <a href="">
+                  <span>
+                    音乐
+                    <em>999+</em>
+                  </span>
+                </a>
+
+              </div>
+
+            </span>
+
+            <span>
+              <div>
+                <a href="">
+                  <span>
+                    国创
+                    <em>999+</em>
+                  </span>
+                </a>
+
+              </div>
+
+            </span>
+
+            <span>
+              <div>
+                <a href="">
+                  <span>
+                    舞蹈
+                    <em>999+</em>
+                  </span>
+                </a>
+
+              </div>
+
+            </span>
+
+            <span>
+              <div>
+                <a href="">
+                  <span>
+                    游戏
+                    <em>999+</em>
+                  </span>
+                </a>
+
+              </div>
+
+            </span>
+
+            <span>
+              <div>
+                <a href="">
+                  <span>
+                    科技
+                    <em>999+</em>
+                  </span>
+                </a>
+
+              </div>
+
+            </span>
+
+            <span>
+              <div>
+                <a href="">
+                  <span>
+                    数码
+                    <em>999+</em>
+                  </span>
+                </a>
+
+              </div>
+
+            </span>
+
+            <span>
+              <div>
+                <a href="">
+                  <span>
+                    生活
+                    <em>999+</em>
+                  </span>
+                </a>
+
+              </div>
+
+            </span>
+
+            <span>
+              <div>
+                <a href="">
+                  <span>
+                    鬼畜
+                    <em>999+</em>
+                  </span>
+                </a>
+
+              </div>
+
+            </span>
+
+            <span>
+              <div>
+                <a href="">
+                  <span>
+                    时尚
+                    <em>999+</em>
+                  </span>
+                </a>
+
+              </div>
+
+            </span>
+
+            <span>
+              <div>
+                <a href="">
+                  <span>
+                    资讯
+                    <em>999+</em>
+                  </span>
+                </a>
+
+              </div>
+
+            </span>
+
+            <span>
+              <div>
+                <a href="">
+                  <span>
+                    娱乐
+                    <em>999+</em>
+                  </span>
+                </a>
+
+              </div>
+
+            </span>
+
+            <span>
+              <div>
+                <a href="">
+                  <span>
+                    影视
+                    <em>999+</em>
+                  </span>
+                </a>
+
+              </div>
+
+            </span>
+
+            <span>
+              <div>
+                <a href="">
+                  <span>
+                    放映厅
+                    <em>999+</em>
+                  </span>
+                </a>
+
+              </div>
+
+            </span>
+
+            <span>
+              <div>
+                <a href="">
+                  <span>
+                    搞笑
+                    <em>999+</em>
+                  </span>
+                </a>
+
+              </div>
+
+            </span>
+
+            <span>
+              <div>
+                <a href="">
+                  <span>
+                    动物圈
+                    <em>999+</em>
+                  </span>
+                </a>
+
+              </div>
+
+            </span>
+
+            <span>
+              <div>
+                <a href="">
+                  <span>
+                    美食圈
+                    <em>999+</em>
+                  </span>
+                </a>
+
+              </div>
+
+            </span>
+
+            <span>
+              <div>
+                <a href="">
+                  <span>
+                    单机游戏
+                    <em>999+</em>
+                  </span>
+                </a>
+
+              </div>
+
+            </span>
+
+            <span>
+              <div>
+                <a href="">
+                  <span>
+                    VLOG
+                    <em>999+</em>
+                  </span>
+                </a>
+
+              </div>
+
+            </span>
+            <span class="tab-line-itnl" style="position: absolute;right: 385px;"></span>
+
+
+
+          </div>
+          <div class="primaryFriendshipLink">
+            <span>
+              <div>
+                <a href="">
+                  <svg style="margin-bottom: -7.5px;" height="25px" width="25px" id="bili-read" viewBox="0 0 1024 1024">
+                    <path
+                      d="M778.496 142.08h-537.6a56.832 56.832 0 0 0-60.16 54.016v630.528a56.832 56.832 0 0 0 59.136 54.016h537.6a56.832 56.832 0 0 0 59.136-54.016V196.096a56.832 56.832 0 0 0-59.136-54.016z"
+                      fill="#54E2E2"></path>
+                    <path
+                      d="M298.496 679.168h421.376a25.6 25.6 0 0 0 0-52.736H298.496a25.6 25.6 0 1 0 0 52.736zM719.872 732.928H298.496a25.6 25.6 0 1 0 0 52.736h421.376a25.6 25.6 0 0 0 0-52.736z"
+                      fill="#23ADE5"></path>
+                    <path
+                      d="M272.128 237.056m80.128 0l314.112 0q80.128 0 80.128 80.128l0 154.368q0 80.128-80.128 80.128l-314.112 0q-80.128 0-80.128-80.128l0-154.368q0-80.128 80.128-80.128Z"
+                      fill="#23ADE5"></path>
+                    <path d="M404.992 361.472m-49.408 0a49.408 49.408 0 1 0 98.816 0 49.408 49.408 0 1 0-98.816 0Z"
+                      fill="#2EC3E5"></path>
+                    <path d="M375.552 551.936l120.832-144.384a44.544 44.544 0 0 1 68.352 0l120.832 144.384z"
+                      fill="#2EC3E5"></path>
+                  </svg>
+
+                  <span>专栏</span>
+
+                </a>
+              </div>
+
+            </span>
+            <span>
+              <div>
+                <a href="">
+                  <svg style="margin-bottom: -7.5px;" width="25px" height="25px" id="bili-live" viewBox="0 0 1024 1024">
+                    <path d="M392.448 275.911111a92.416 92.416 0 1 1-184.832 0 92.416 92.416 0 0 1 184.832 0"
+                      fill="#23ADE5"></path>
+                    <path
+                      d="M826.624 464.583111l-63.744 36.864v-48.64a72.206222 72.206222 0 0 0-71.68-71.936H190.72a72.192 72.192 0 0 0-71.936 71.936V748.231111a71.936 71.936 0 0 0 71.936 71.936H691.2a71.936 71.936 0 0 0 71.936-71.936v-23.808l63.488 37.888a51.2 51.2 0 0 0 76.8-44.544V508.871111a51.2 51.2 0 0 0-76.8-44.288M572.928 369.351111c79.459556 0.142222 143.985778-64.156444 144.128-143.616 0.142222-79.459556-64.156444-143.985778-143.616-144.128-79.260444-0.142222-143.701333 63.857778-144.128 143.104-0.426667 79.459556 63.644444 144.213333 143.104 144.64h0.512"
+                      fill="#48CFE5"></path>
+                    <path
+                      d="M425.216 512.967111l124.16 71.936a25.6 25.6 0 0 1 0 42.496l-124.16 71.68a25.6 25.6 0 0 1-37.12-21.248V534.471111a25.6 25.6 0 0 1 37.12-21.504"
+                      fill="#FDDE80"></path>
+                  </svg>
+
+                  <span>直播</span>
+
+                </a>
+              </div>
+
+            </span>
+            <span>
+              <div>
+                <a href="">
+                  <svg style="margin-bottom: -7.5px;" width="25px" height="25px" id="bili-activit"
+                    viewBox="0 0 1024 1024">
+                    <path
+                      d="M518.656 475.904a223.488 223.488 0 0 1-23.296-75.52 366.08 366.08 0 0 1 81.408 14.592 623.104 623.104 0 0 1-58.112 60.928m-69.888-119.04c-11.52-58.112-8.704-55.296-25.6-156.928a265.984 265.984 0 0 0-78.336 46.592c51.2 104.448 60.928 165.376 92.928 290.304 51.2-5.632 211.968-40.704 226.56-130.56 8.704-64-142.336-64-215.04-49.408M486.4 624.128a263.424 263.424 0 0 0-107.52 69.632l43.52 153.6a47.872 47.872 0 0 1-92.928 23.296L216.576 473.088l-72.704-204.8c2.816-5.632 5.888-8.704 8.704-14.336l-14.592-51.2a46.08 46.08 0 0 1 32-57.856A47.616 47.616 0 0 1 228.096 179.2v2.816a334.848 334.848 0 0 1 98.816-43.52c177.152-46.592 203.264 55.04 429.824 23.296L890.368 588.8c-171.52 90.112-232.448-11.52-403.712 35.072"
+                      fill="#F39800"></path>
+                  </svg>
+
+                  <span>活动</span>
+
+                </a>
+              </div>
+
+            </span>
+            <span>
+              <div>
+                <a href="">
+                  <svg style="margin-bottom: -7.5px;" width="25px" height="25px" id="bili-zhishi"
+                    viewBox="0 0 1024 1024">
+                    <path
+                      d="M781.3671875 132.3125C842.2859375 132.3125 891.6875 182.684375 891.6875 244.8265625v533.334375c0 62.1-49.359375 112.471875-110.3203125 112.471875H518.75c0-16.115625-25.6921875-29.1515625-57.375-29.1515625-31.6828125 0-57.375 13.078125-57.375 29.1515625H284.8203125C223.9015625 890.6328125 174.5 840.2609375 174.5 778.203125V244.8265625C174.5 182.684375 223.859375 132.3125 284.8203125 132.3125h496.546875z"
+                      fill="#FBC92A"></path>
+                    <path
+                      d="M781.3671875 132.3125C842.2859375 132.3125 891.6875 182.684375 891.6875 244.8265625v209.671875c-49.4859375 4.89375-86.0625 22.021875-86.0625 42.3984375 0 20.3765625 36.5765625 37.546875 86.0625 42.35625v34.7203125c0 62.1421875-49.359375 112.5140625-110.3203125 112.5140625H284.8203125C223.9015625 686.4875 174.5 636.115625 174.5 573.9734375V244.8265625C174.5 182.684375 223.859375 132.3125 284.8203125 132.3125h496.546875z"
+                      fill="#FFEA85"></path>
+                    <path d="M346.625 686.4875a114.75 58.3453125 0 1 0 229.5 0 114.75 58.3453125 0 1 0-229.5 0Z"
+                      fill="#FBC92A"></path>
+                    <path d="M260.5625 803.1359375a43.03125 42.1875 0 1 0 86.0625 0 43.03125 42.1875 0 1 0-86.0625 0Z"
+                      fill="#F4B828"></path>
+                    <path d="M490.0625 803.1359375a71.71875 42.1875 0 1 0 143.4375 0 71.71875 42.1875 0 1 0-143.4375 0Z"
+                      fill="#F4B828"></path>
+                    <path
+                      d="M674.50625 477.4484375a27.2109375 27.2109375 0 0 1 39.0234375 1.2234375 28.51875 28.51875 0 0 1-1.18125 39.740625 238.021875 238.021875 0 0 1-330.91875 0 28.51875 28.51875 0 0 1-1.18125-39.740625 27.2109375 27.2109375 0 0 1 38.98125-1.2234375 183.6421875 183.6421875 0 0 0 255.2765625 0z"
+                      fill="#FBC92A"></path>
+                    <path
+                      d="M734.7921875 272.9234375h5.1890625a41.765625 41.765625 0 0 1 41.34375 42.1875v56.278125c0 23.2875-18.478125 42.1875-41.34375 42.1875h-5.1890625a41.765625 41.765625 0 0 1-41.34375-42.1875V315.1109375c0-23.2875 18.5203125-42.1875 41.34375-42.1875zM353.796875 272.9234375h5.1890625a41.765625 41.765625 0 0 1 41.34375 42.1875v56.278125c0 23.2875-18.5203125 42.1875-41.34375 42.1875H353.796875a41.765625 41.765625 0 0 1-41.34375-42.1875V315.1109375c0-23.2875 18.478125-42.1875 41.34375-42.1875z"
+                      fill="#FBC92A"></path>
+                  </svg>
+
+                  <span>课堂</span>
+
+                </a>
+              </div>
+
+            </span>
+            <span>
+              <div style="width: 97px;">
+                <a href="">
+                  <svg style="margin-bottom: -7.5px;" width="25px" height="25px" id="bili-blackroom"
+                    viewBox="0 0 1024 1024">
+                    <path
+                      d="M139.264 529.152a27.136 27.136 0 0 1-14.592-2.816A32 32 0 0 1 113.152 486.4l130.816-236.032a28.416 28.416 0 1 1 49.152 28.928l-130.56 235.52a25.6 25.6 0 0 1-23.296 14.336"
+                      fill="#F99E4A"></path>
+                    <path
+                      d="M380.416 529.152a34.56 34.56 0 0 1-25.6-14.592l-131.328-235.264a30.208 30.208 0 0 1 11.52-37.632 25.6 25.6 0 0 1 37.888 11.52l130.816 235.264a25.6 25.6 0 0 1-11.776 37.888c-2.816 0-8.704 2.816-11.52 2.816m261.376 0a25.6 25.6 0 0 1-14.336-2.816 29.44 29.44 0 0 1-11.776-37.888l130.816-235.264a28.928 28.928 0 0 1 37.632-11.52 29.44 29.44 0 0 1 11.776 37.632L665.6 514.56a25.6 25.6 0 0 1-23.296 14.592"
+                      fill="#F99E4A"></path>
+                    <path
+                      d="M883.968 529.152a34.56 34.56 0 0 1-25.6-14.336l-130.56-235.52a27.392 27.392 0 0 1 11.52-37.632 25.6 25.6 0 0 1 37.888 11.52l130.56 235.52a25.6 25.6 0 0 1-11.776 37.632c-2.816 0-8.704 2.816-11.776 2.816"
+                      fill="#F99E4A"></path>
+                    <path
+                      d="M801.536 241.664l-130.56-51.2A129.536 129.536 0 0 0 640 183.552H380.416a153.6 153.6 0 0 0-32 5.632L217.6 241.664A21.248 21.248 0 0 0 226.304 281.6h569.6a21.248 21.248 0 0 0 5.632-40.704M458.752 281.6v520.704a51.2 51.2 0 0 0 104.704 0V281.6z"
+                      fill="#FFD043"></path>
+                    <path d="M561.152 183.296A51.2 51.2 0 0 0 512 139.776a52.992 52.992 0 0 0-51.2 46.336h102.4z"
+                      fill="#FFD043"></path>
+                    <path
+                      d="M755.2 877.824H267.008A41.472 41.472 0 0 1 230.4 816.896l55.04-122.112a44.8 44.8 0 0 1 37.888-25.6h373.76a37.12 37.12 0 0 1 37.632 25.6L790.016 819.2a37.888 37.888 0 0 1-34.816 58.112"
+                      fill="#F99E4A"></path>
+                    <path
+                      d="M900.352 494.336a9.216 9.216 0 0 1 8.704 8.704 148.48 148.48 0 0 1-296.192 0 7.68 7.68 0 0 1 8.704-8.704z m-502.528 0a9.216 9.216 0 0 1 8.704 8.704 151.808 151.808 0 0 1-148.224 142.336 150.016 150.016 0 0 1-148.224-142.336 7.68 7.68 0 0 1 8.704-8.704z"
+                      fill="#FFD043"></path>
+                  </svg>
+
+                  <span>小黑屋</span>
+
+                </a>
+              </div>
+
+            </span>
+            <span>
+              <div style="width: 97px;">
+                <a href="">
+                  <svg style="margin-bottom: -7.5px;" width="25px" height="25px" id="bili-musicplus"
+                    viewBox="0 0 1024 1024">
+                    <path
+                      d="M128 256m25.6 0l716.8 0q25.6 0 25.6 25.6l0 512q0 25.6-25.6 25.6l-716.8 0q-25.6 0-25.6-25.6l0-512q0-25.6 25.6-25.6Z"
+                      fill="#3DA9D3"></path>
+                    <path
+                      d="M153.6 256h153.6v563.2H153.6a25.6 25.6 0 0 1-25.6-25.6V281.6a25.6 25.6 0 0 1 25.6-25.6zM870.4 256h-153.6v563.2h153.6a25.6 25.6 0 0 0 25.6-25.6V281.6a25.6 25.6 0 0 0-25.6-25.6z"
+                      fill="#7DD3E0"></path>
+                    <path
+                      d="M768 320m15.36 0l46.08 0q15.36 0 15.36 15.36l0 20.48q0 15.36-15.36 15.36l-46.08 0q-15.36 0-15.36-15.36l0-20.48q0-15.36 15.36-15.36Z"
+                      fill="#3DA9D3"></path>
+                    <path
+                      d="M768 448m15.36 0l46.08 0q15.36 0 15.36 15.36l0 20.48q0 15.36-15.36 15.36l-46.08 0q-15.36 0-15.36-15.36l0-20.48q0-15.36 15.36-15.36Z"
+                      fill="#3DA9D3"></path>
+                    <path
+                      d="M768 576m15.36 0l46.08 0q15.36 0 15.36 15.36l0 20.48q0 15.36-15.36 15.36l-46.08 0q-15.36 0-15.36-15.36l0-20.48q0-15.36 15.36-15.36Z"
+                      fill="#3DA9D3"></path>
+                    <path
+                      d="M768 704m15.36 0l46.08 0q15.36 0 15.36 15.36l0 20.48q0 15.36-15.36 15.36l-46.08 0q-15.36 0-15.36-15.36l0-20.48q0-15.36 15.36-15.36Z"
+                      fill="#3DA9D3"></path>
+                    <path
+                      d="M576 180.736c8.7808-2.6112 15.8976-1.92 21.3504 2.0736 5.4784 3.9936 11.008 9.8304 16.64 17.4592 5.6064 7.6544 12.544 16.256 20.7616 25.856 8.2432 9.5744 19.456 18.5088 33.6896 26.7776 12.2368 7.68 22.9632 12.9536 32.2048 15.7696l25.9584 7.8592c8.2176 2.432 16.128 5.5296 23.6544 9.2672 0 0 17.7408 9.984 25.5232 20.48 8.1152 10.9056 14.8736 19.6608 16.6144 30.976 1.7152 11.3408 1.6128 21.9136-0.4608 31.6928a72.7296 72.7296 0 0 1-9.5744 24.576c-4.2752 6.5792-7.8592 9.9328-10.752 9.9328-2.8672 0.0256-5.4016-1.6128-7.6032-5.0432-2.2272-3.3792-3.84-9.984-4.864-19.7632-1.6896-15.872-6.656-27.0336-14.976-33.4592-8.32-6.4256-21.3504-9.984-39.1424-10.7264a96.0512 96.0512 0 0 1-48.9216-15.616c-12.3648-8.0384-24.064-16.9984-34.9696-26.8032-8.8832-7.3728-15.7952-9.5488-20.8896-6.2976-4.992 3.2256-7.5776 8.1152-7.7312 14.7456l-0.5632 26.752-6.7072 273.792-0.7936 35.4048c0.1536 9.856-1.664 21.1968-5.4272 33.9968-3.7888 12.8-10.6752 25.2928-20.6592 37.4528-9.9328 12.16-23.0912 23.2192-39.4752 33.2288s-36.5824 17.3568-60.5952 22.0672c-24.448 4.7616-46.4128 3.584-65.8944-3.5072-19.456-7.0912-34.3808-17.4336-44.7744-31.0272-10.24-12.928-15.4368-29.5936-14.7712-47.5136 0.6912-18.048 8.8576-36.0448 24.4736-53.9648 15.616-17.92 32.4352-31.2832 50.432-40.1152a198.8096 198.8096 0 0 1 51.8144-17.7152 178.8416 178.8416 0 0 1 44.3136-3.0208c13.0048 1.0496 22.5792 2.3808 28.7488 3.9424 0 0 6.4512-280.1664 8.2944-341.6064 0.2304-12.1088 3.584-22.3232 9.9328-30.976 6.4-8.5504 14.7712-14.208 25.1392-16.9472z m160.9216 288.1792a12.8 12.8 0 0 1 0.3584 2.9696v40.96l41.728-6.912a12.8 12.8 0 0 1 14.8992 12.5952v15.0016a12.8 12.8 0 0 1-10.7008 12.6464l-45.952 7.6288 0.0256 45.3632a12.8 12.8 0 0 1-9.8304 12.4416l-15.36 3.6608a12.8 12.8 0 0 1-15.7696-12.4416V560.64l-41.1136 6.8608a12.8 12.8 0 0 1-14.8992-12.6208v-15.0016a12.8 12.8 0 0 1 10.7008-12.6464l45.312-7.552v-44.1344a12.8 12.8 0 0 1 9.8304-12.4672l15.36-3.6352a12.8 12.8 0 0 1 15.4112 9.472z"
+                      fill="#FFD469"></path>
+                    <path
+                      d="M179.2 320m15.36 0l46.08 0q15.36 0 15.36 15.36l0 20.48q0 15.36-15.36 15.36l-46.08 0q-15.36 0-15.36-15.36l0-20.48q0-15.36 15.36-15.36Z"
+                      fill="#3DA9D3"></path>
+                    <path
+                      d="M179.2 448m15.36 0l46.08 0q15.36 0 15.36 15.36l0 20.48q0 15.36-15.36 15.36l-46.08 0q-15.36 0-15.36-15.36l0-20.48q0-15.36 15.36-15.36Z"
+                      fill="#3DA9D3"></path>
+                    <path
+                      d="M179.2 576m15.36 0l46.08 0q15.36 0 15.36 15.36l0 20.48q0 15.36-15.36 15.36l-46.08 0q-15.36 0-15.36-15.36l0-20.48q0-15.36 15.36-15.36Z"
+                      fill="#3DA9D3"></path>
+                    <path
+                      d="M179.2 704m15.36 0l46.08 0q15.36 0 15.36 15.36l0 20.48q0 15.36-15.36 15.36l-46.08 0q-15.36 0-15.36-15.36l0-20.48q0-15.36 15.36-15.36Z"
+                      fill="#3DA9D3"></path>
+                  </svg>
+
+                  <span>音乐PLUS</span>
+
+                </a>
+              </div>
+
+            </span>
+
+          </div>
+
+
+        </div>
+      </div>
+
+
+    </div>
+    <div class="international-home">
+      <div class="first-screen">
+        <div id="reportFirst1">
+          <div class="focus-carousel">
+            <div id="van" class="van-slide" style="width: 550px; height: 242px; border-radius: 2px;">
+              <a href="//www.bilibili.com/blackboard/topic_list.html" class="more">更多
+                <svg style="margin-bottom: -5px;" width="18px" height="18px" t="1589294241068" class="icon"
+                  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1663" width="64"
+                  height="64">
+                  <path
+                    d="M320 828.8L636.16 512 320 195.2a32 32 0 1 1 45.44-45.44L704 489.6a32 32 0 0 1 0 45.44l-339.2 339.2a32 32 0 0 1-44.8-45.44z"
+                    p-id="1664" fill="#ffffff"></path>
+                </svg>
+              </a>
+              <div id="gun" style="width: 3300px;display: flex;">
+                <div class="bannarimg" id="banner1">
+
+                  <a href="">
+                    <img class="lun" src="images/1.jpg" alt="">
+                  </a>
+                  <p class="title">奖品有限，送完即止>></p>
+
+                </div>
+                <div class="bannarimg" id="banner2">
+                  <a href="">
+                    <img class="lun" src="images/2.jpg" alt="">
+                  </a>
+                  <p class="title"><i class="bypb-icon"></i>【日语】免费学习发音课程</p>
+
+                </div>
+                <div class="bannarimg" id="banner3">
+                  <a href="">
+                    <img class="lun" src="images/3.jpg" alt="">
+                  </a>
+                  <p class="title">血槽清空！神奇动物园营业中</p>
+
+                </div>
+                <div class="bannarimg" id="banner4">
+                  <a href="">
+                    <img class="lun" src="images/4.jpg" alt="">
+                  </a>
+                  <p class="title">红海行动：中国海军海外救援，真实事件改编</p>
+
+                </div>
+                <div class="bannarimg" id="banner5">
+                  <a href="">
+                    <img class="lun" src="images/5.jpg" alt="">
+                  </a>
+                  <p class="title">完结撒花~</p>
+
+                </div>
+                <div class="bannarimg" id="banner1">
+
+                  <a href="">
+                    <img class="lun" src="images/1.jpg" alt="">
+                  </a>
+                  <p class="title">奖品有限，送完即止>></p>
+
+                </div>
+
+              </div>
+
+              <div class="trigger" id="trigger">
+                <div class="sel">
+                  <span class="active" onclick="toi(1)"></span>
+                </div>
+                <div class="sel">
+                  <span onclick="toi(2)"></span>
+                </div>
+                <div class="sel">
+                  <span onclick="toi(3)"></span>
+                </div>
+                <div class="sel">
+                  <span onclick="toi(4)"></span>
+                </div>
+                <div class="sel">
+                  <span onclick="toi(5)"></span>
+                </div>
+
+
+
+
+
+
+              </div>
+            </div>
+
+
+          </div>
+          <div class="recommend-box" style="overflow: hidden; ">
+            <div class="btn prev" onclick="tt(0)">
+
+              <svg width="30px" height="30px" style="position: absolute;left: 0;margin-top: 15px;" t="1589294189287"
+                class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1473"
+                width="64" height="64">
+                <path
+                  d="M704 828.8L387.84 512 704 195.2a32 32 0 1 0-45.44-45.44L320 489.6a32 32 0 0 0 0 45.44l339.2 339.2a32 32 0 0 0 45.44-45.44z"
+                  p-id="1474" fill="#ffffff"></path>
+              </svg>
+            </div>
+            <div class="btn next" onclick="tt(1)">
+              <svg width="30px" height="30px" style="position: absolute;left: 0;margin-top: 15px;" t="1589294241068"
+                class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1663"
+                width="64" height="64">
+                <path
+                  d="M320 828.8L636.16 512 320 195.2a32 32 0 1 1 45.44-45.44L704 489.6a32 32 0 0 1 0 45.44l-339.2 339.2a32 32 0 0 1-44.8-45.44z"
+                  p-id="1664" fill="#ffffff"></path>
+              </svg>
+
+            </div>
+            <div id="liegun" style="position: absolute; width: 2006px;height:100%; display: space-around;">
+              <div class="video-card-reco">
+
+                <div class="info-box">
+                  <a href="">
+                    <img src="images/dfgd.jpg">
+                    <div class="info">
+                      <p title="【10秒交币】听着rap，一起进入Minecraft搭建的【东方国度】" class="title">
+                        【10秒交币】听着rap，一起进入Minecraft搭建的【东方国度】</p>
+                      <p class="up">
+                        <svg style="margin-bottom: -3px; " t="1589509169431" class="icon" viewBox="0 0 1024 1024"
+                          version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23736" width="16" height="16">
+                          <path
+                            d="M800 128H224C134.4 128 64 198.4 64 288v448c0 89.6 70.4 160 160 160h576c89.6 0 160-70.4 160-160V288c0-89.6-70.4-160-160-160z m96 608c0 54.4-41.6 96-96 96H224c-54.4 0-96-41.6-96-96V288c0-54.4 41.6-96 96-96h576c54.4 0 96 41.6 96 96v448z"
+                            p-id="23737" fill="#ffffff"></path>
+                          <path
+                            d="M419.2 544c0 51.2-3.2 108.8-83.2 108.8S252.8 595.2 252.8 544v-217.6H192v243.2c0 96 51.2 140.8 140.8 140.8 89.6 0 147.2-48 147.2-144v-240h-60.8V544zM710.4 326.4h-156.8V704h60.8v-147.2h96c102.4 0 121.6-67.2 121.6-115.2 0-44.8-19.2-115.2-121.6-115.2z m-3.2 179.2h-92.8V384h92.8c32 0 60.8 12.8 60.8 60.8 0 44.8-32 60.8-60.8 60.8z"
+                            p-id="23738" fill="#ffffff"></path>
+                        </svg>
+                        米琪小连杀
+                      </p>
+                      <p class="play">25.8万播放</p>
+
+                    </div>
+
+                  </a>
+
+
+
+
+                  <img class="imm" src="images/播放.png" alt="">
+                </div>
+
+              </div>
+              <div class="video-card-reco">
+                <div class="info-box">
+                  <a href="">
+                    <img src="images/t1.jpg">
+                    <div class="info">
+                      <p style="z-index: 100;" title="【自得琴社X郑云龙】《须尽欢》音乐微剧场|李白的居家创作生活 郑云龙道袍+戏腔惊艳亮相 唐代装束复原" class="title">
+                        【自得琴社X郑云龙】《须尽欢》音乐微剧场|李白的居家创作生活 郑云龙道袍+戏腔惊艳亮相 唐代装束复原</p>
+                      <p class="up">
+                        <svg style="margin-bottom: -3px; " t="1589509169431" class="icon" viewBox="0 0 1024 1024"
+                          version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="23736" width="16" height="16">
+                          <path
+                            d="M800 128H224C134.4 128 64 198.4 64 288v448c0 89.6 70.4 160 160 160h576c89.6 0 160-70.4 160-160V288c0-89.6-70.4-160-160-160z m96 608c0 54.4-41.6 96-96 96H224c-54.4 0-96-41.6-96-96V288c0-54.4 41.6-96 96-96h576c54.4 0 96 41.6 96 96v448z"
+                            p-id="23737" fill="#ffffff"></path>
+                          <path
+                            d="M419.2 544c0 51.2-3.2 108.8-83.2 108.8S252.8 595.2 252.8 544v-217.6H192v243.2c0 96 51.2 140.8 140.8 140.8 89.6 0 147.2-48 147.2-144v-240h-60.8V544zM710.4 326.4h-156.8V704h60.8v-147.2h96c102.4 0 121.6-67.2 121.6-115.2 0-44.8-19.2-115.2-121.6-115.2z m-3.2 179.2h-92.8V384h92.8c32 0 60.8 12.8 60.8 60.8 0 44.8-32 60.8-60.8 60.8z"
+                            p-id="23738" fill="#ffffff"></path>
+                        </svg>
+                        古琴诊所
+                      </p>
+                      <p class="play">20.6万播放</p>
